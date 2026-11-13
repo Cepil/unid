@@ -1,0 +1,19 @@
+# 데이터와 실험 결과
+data/
+outputs/
+checkpoints/
+logs/
+*.pt
+*.pth
+*.ckpt
+
+# 개인 실행 환경
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# 비밀번호와 인증 정보
+.env
+.env.*
+!.env.example

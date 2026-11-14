@@ -1,0 +1,7 @@
+# torch / torchvision: keep the organizer GPU server installation (do not reinstall).
+numpy
+pandas
+scikit-learn==1.7.2
+pillow
+joblib
+threadpoolctl

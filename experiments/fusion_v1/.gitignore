@@ -1,0 +1,9 @@
+__pycache__/
+data/
+outputs/
+weights/
+*.pt
+*.csv
+*.tar
+*.npz
+*.log

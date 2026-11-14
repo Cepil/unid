@@ -1,19 +1,27 @@
-# 데이터와 실험 결과
+# Competition data and private artifacts
 data/
 outputs/
 checkpoints/
+weights/
 logs/
+torch-cache/
+feature-cache/
+*.csv
 *.pt
 *.pth
 *.ckpt
+*.joblib
+*.npz
+*.tar
+*.tar.gz
+*.zip
+*.log
 
-# 개인 실행 환경
+# Local environments and credentials
 .venv/
 venv/
 __pycache__/
 .ipynb_checkpoints/
-
-# 비밀번호와 인증 정보
 .env
 .env.*
 !.env.example

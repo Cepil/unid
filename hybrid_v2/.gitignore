@@ -1,0 +1,12 @@
+__pycache__/
+data/
+outputs/
+weights/
+logs/
+*.pt
+*.joblib
+*.csv
+*.tar
+*.zip
+*.npz
+*.log

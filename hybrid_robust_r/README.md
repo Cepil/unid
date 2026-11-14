@@ -1,6 +1,6 @@
 # hybrid_robust_r — hybrid_epair + MLP 센서 입력의 중앙값·IQR 정규화
 
-> **팀 최종 선택 모델.** hybrid_epair(Public 0.9476)에서 MLP의 센서 입력 정규화만 바꿨다. Public **0.9526954937**.
+> 이전 최종 선택 모델 (현재 최종은 `hybrid_rewm`의 변형 REW). hybrid_epair(Public 0.9476)에서 MLP의 센서 입력 정규화만 바꿨다. Public **0.9526954937**.
 
 ## 모델 구성
 

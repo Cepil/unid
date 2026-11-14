@@ -1,0 +1,19 @@
+{
+  "archive": "hybrid_v2_weights.tar.gz",
+  "archive_sha256": "79a3372dc3485eb3c1a71c0df034553f2ec1bccfa2d2622e1b4de477039f3e68",
+  "distribution": "User will send archive directly to teammates via KakaoTalk; no cloud download URL.",
+  "files": {
+    "weights/hybrid.pt": "ff20b333a4366bdd1fb7482e3372fac20c7ef0e905bb32994a6e1cd4b0d992b4",
+    "weights/tree.joblib": "e3aab35d27d506a1d0829944dd8a40c4e23c94d819a0baf35e7666bc36dd194c",
+    "weights/training_metadata.json": "47cc2cd957486e68e2ca8e12d16c84e166805c78712b6b53538737e88fa08d03"
+  },
+  "environment_versions": {
+    "torch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "pillow": "11.1.0",
+    "joblib": "1.6.0"
+  }
+}

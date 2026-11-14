@@ -13,6 +13,6 @@ Hybrid v2는 이미지·센서 MLP 3개 시드의 평균과, 이미지·센서 �
 - [현재 후보 코드](hybrid_v2/): 추론·학습·검증 코드, 가중치 패키징 도구.
 - [실험 재현 코드](experiments/fusion_v1/): v1과 같은 fold에서 후보를 비교한 CV/분석 코드.
 - 대회 데이터, 예측 CSV, 로그, 캐시, 인증정보는 레포에 포함하지 않습니다.
-- 가중치 바이너리는 아직 이 코드 공유 패키지에 포함되지 않았습니다. 전달 절차는 TEAM_HANDOFF.md를 따릅니다.
+- 가중치 바이너리는 레포에 포함하지 않으며 사용자가 팀 카톡으로 `hybrid_v2_weights.tar.gz`를 전달합니다. 체크섬은 `hybrid_v2/WEIGHTS_MANIFEST.json`, 설치법은 TEAM_HANDOFF.md를 따릅니다.
 
 Public 상승은 Private 성능을 보장하지 않습니다. 최종 제출 파일 선택 상태도 DAKER에서 별도로 확인해야 합니다.

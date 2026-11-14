@@ -8,7 +8,7 @@
 - 학습된 가중치가 반드시 필요합니다. 코드만 clone해서는 기존 예측을 재현할 수 없습니다. 재학습이 아니라 가중치를 내려받아 추론합니다.
 - 필요한 가중치: `hybrid_v2/weights/hybrid.pt`와 **같은 폴더의 `tree.joblib`**. 하나만 전달하면 추론할 수 없습니다.
 - `training_metadata.json`은 실제 학습 라이브러리 버전·검증 결과, `SHA256SUMS`는 전달 파일의 무결성 확인에 사용합니다.
-- 가중치는 아직 이 코드 공유 패키지/레포에 첨부되지 않았습니다. 서버에서 패키징하고 팀 공유 위치로 옮기는 작업이 남았습니다.
+- 가중치 묶음은 로컬로 다운로드해 내부 체크섬 3개 모두 검증했습니다. 사용자가 팀 카톡으로 `hybrid_v2_weights.tar.gz`를 직접 전달합니다. 레포에는 바이너리를 올리지 않고 `hybrid_v2/WEIGHTS_MANIFEST.json`에 검증된 해시를 기록했습니다.
 
 ## 코드 받기와 가중치 설치
 
@@ -28,7 +28,7 @@ tar -xzf <hybrid_v2_weights.tar.gz의 경로>
 대회 제공 RTX 5080 서버는 운영진 setup.sh로 준비한 GPU용 torch/torchvision을 유지합니다. **Seraph용 torch 2.5.1/cu121로 덮어쓰지 않습니다.** 기본 requirements.txt는 torch/torchvision 설치를 요청하지 않습니다. `requirements-seraph.txt`는 과거 Seraph 환경의 참고이며 대회 제공 서버에서 설치하지 마십시오.
 
 1. 운영진 환경에서 `source ~/venv/bin/activate`.
-2. `python -m pip install -r requirements.txt`.
+2. `python -m pip install -r requirements.txt`. 실제 학습 artifact에서 확인한 numpy 1.26.4, pandas 2.3.3, scikit-learn 1.7.2, Pillow 11.1.0, joblib 1.6.0을 고정했습니다. torch/torchvision은 건드리지 않습니다.
 3. `weights/training_metadata.json`의 `environment_versions`를 확인합니다. 특히 joblib로 저장된 scikit-learn 모델은 동일 scikit-learn 버전에서 재현해야 합니다. 파일을 받은 후 버전을 맞추세요. NumPy·joblib도 저장된 버전과 맞추는 것을 권장합니다.
 4. `python -c "import torch; print(torch.cuda.is_available(), torch.__version__)"`로 GPU 확인. CPU 추론도 지원하지만 느릴 수 있습니다.
 
@@ -118,7 +118,9 @@ scp moana.seraph:/data/jashin0414/unid/hybrid_v2/hybrid_v2_weights.tar.gz.sha256
   "$HOME/Downloads/hybrid_v2_weights.tar.gz.sha256"
 ```
 
-맥에서는 `shasum -a 256`으로, Linux에서는 `sha256sum`으로 아카이브 해시를 확인할 수 있습니다. 가중치는 팀 공유 드라이브 등 팀원이 접근 가능한 위치에 올리고, 해당 링크를 팀 내부에 공유합니다. 이 문서에는 실제 가중치 업로드 링크를 아직 기재하지 않았습니다. 최종 심사용 링크/공개 범위는 대회 규정에 맞춰 확정합니다.
+맥에서는 `shasum -a 256`으로, Linux에서는 `sha256sum`으로 아카이브 해시를 확인할 수 있습니다. 이번 팀 전달은 사용자가 카톡으로 가중치 아카이브를 직접 보내는 방식입니다. 아래 SHA256 또는 WEIGHTS_MANIFEST.json과 비교한 뒤, `unid/hybrid_v2` 안에서 압축을 풀어 `weights/` 경로가 맞는지 확인하세요. 최종 심사용 다운로드 링크/공개 범위는 별도로 확정해야 합니다.
+
+아카이브 SHA256: `79a3372dc3485eb3c1a71c0df034553f2ec1bccfa2d2622e1b4de477039f3e68`.
 
 ## 운영·제출 주의점
 
@@ -132,4 +134,4 @@ scp moana.seraph:/data/jashin0414/unid/hybrid_v2/hybrid_v2_weights.tar.gz.sha256
 
 ## 팀 채팅에 붙여넣을 요약
 
-> Hybrid v2 Public 0.9003493296 나왔습니다. v1 0.8504558014 대비 약 4.99%p 상승입니다. 동일 GroupKFold 평균 0.862176, 5개 fold 전부 v1보다 개선됐고 제공 Validation은 0.727172입니다. 고정 ResNet-18 이미지 특징+센서 MLP 3시드 평균과 이미지·센서 HGB를 50:50으로 결합합니다. 코드와 실행법은 팀 레포 공유 브랜치/PR에 정리했습니다. 추론에는 hybrid.pt와 tree.joblib 두 파일이 모두 필요하며 가중치 다운로드 링크는 별도로 전달하겠습니다. 팀 전체 하루 30회 제출이니 추가 제출 전에 공유해주세요.
+> Hybrid v2 Public 0.9003493296 나왔습니다. v1 0.8504558014 대비 약 4.99%p 상승입니다. 동일 GroupKFold 평균 0.862176, 5개 fold 전부 v1보다 개선됐고 제공 Validation은 0.727172입니다. 고정 ResNet-18 이미지 특징+센서 MLP 3시드 평균과 이미지·센서 HGB를 50:50으로 결합합니다. 코드와 실행법은 팀 레포 공유 브랜치/PR에 정리했습니다. 추론에는 hybrid.pt와 tree.joblib 두 파일이 모두 필요하며 가중치 묶음 hybrid_v2_weights.tar.gz는 카톡 파일로 별도 전달하겠습니다. 코드 폴더 hybrid_v2 안에서 풀면 됩니다. 팀 전체 하루 30회 제출이니 추가 제출 전에 공유해주세요.

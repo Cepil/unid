@@ -1,9 +1,0 @@
-# Preserve the organizer's compatible GPU torch/torchvision installation.
-torch
-torchvision
-numpy
-pandas
-scikit-learn
-pillow
-joblib
-threadpoolctl

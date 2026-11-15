@@ -17,3 +17,11 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# 가중치·제출 파일·압축본은 레포에 올리지 않는다 (가중치는 README의 링크로 전달)
+weights/
+weights_*/
+*.joblib
+*.csv
+*.tar.gz
+*.zip

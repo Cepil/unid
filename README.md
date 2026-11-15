@@ -4,16 +4,15 @@
 
 ## 최종 모델
 
-**[`hybrid_rewm/`](hybrid_rewm/) 의 변형 REW** — Public **0.9548552368**, 제공 Validation 0.769316.
+**레포 최상위의 `model.py` · `train.py` · `test.py`** (모델 이름 hybrid_rewm, 변형 REW) — Public **0.9548552368**, 제공 Validation 0.769316.
 
 - 제출 파일: `submission_rew.csv` (SHA256 앞 16자 `a0dafe3f05c118f3`)
-- 가중치: `model.pt`, `tree.joblib`, `manifest.json` 한 세트. **다운로드 링크: (팀에서 기입)** — 받은 세 파일을 `hybrid_rewm/weights/`에 둔다.
+- 가중치: `model.pt`, `tree.joblib`, `manifest.json` 한 세트. **다운로드 링크: (팀에서 기입)** — 받은 세 파일을 레포 최상위의 `weights/` 폴더에 둔다.
 - 대회 데이터는 이 레포에 포함하지 않는다.
 
 ### 추론 (재학습 없이 제출 결과 재현)
 
 ```bash
-cd hybrid_rewm
 pip install -r requirements.txt        # torch / torchvision은 설치된 GPU 빌드를 그대로 쓴다
 python test.py --input <test.csv> --image_root <이미지 폴더> --output submission.csv
 ```
@@ -23,11 +22,10 @@ python test.py --input <test.csv> --image_root <이미지 폴더> --output submi
 ### 학습
 
 ```bash
-cd hybrid_rewm
-python train.py --data_dir <battery_data_light> --output_dir weights --variant REW
+python train.py --data_dir <battery_data_light> --output_dir weights
 ```
 
-`--variant REW`를 꼭 지정한다 (생략하면 채택하지 않은 변형 REWM이 학습된다). 제공 Train만 사용하고, 제공 Validation은 학습 뒤 한 번 평가만 한다.
+제공 Train만 사용하고, 제공 Validation은 학습 뒤 한 번 평가만 한다. 기본 변형이 최종 모델인 REW다 (`--variant REWM`은 채택하지 않은 비교용 변형).
 
 ## 모델 한눈에 보기
 
@@ -52,6 +50,8 @@ python train.py --data_dir <battery_data_light> --output_dir weights --variant R
 | `hybrid_epair/` | 누적 사건 피처 | 0.9476 |
 | `hybrid_robust_r/` | MLP 센서 입력의 중앙값·IQR 정규화 | 0.9527 |
 | **`hybrid_rewm/`** | **60초 창 피처 (최종, 변형 REW)** | **0.9549** |
+
+최상위의 `model.py` · `base_model.py` · `baseline_v7.py` · `test.py`는 `hybrid_rewm/`의 파일과 같다. `train.py`는 기본 변형만 REW로 바꿨다 (`hybrid_rewm/train.py`는 기본값이 REWM이라 `--variant REW`를 붙여야 한다).
 
 ## 환경과 출처
 

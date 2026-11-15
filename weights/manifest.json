@@ -1,0 +1,21 @@
+{
+  "model_family": "hybrid_rewm",
+  "variant": "REW",
+  "format_version": 18,
+  "trained_on": "provided Train only",
+  "encoder_source": "torchvision:ResNet18_Weights.IMAGENET1K_V1",
+  "baseline_v7_sha256": "76bdb7231153dbee0549f2db1558c2cf6948eaa3b2a73b544b9b910b5819eaa5",
+  "environment_versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "pillow": "12.3.0",
+    "joblib": "1.6.0"
+  },
+  "files": {
+    "model.pt": "1b8f211a988c93c60bd5564b9173da9d89138d4482e1fe4ffee5969d308f83e5",
+    "tree.joblib": "316c64dd6210778ee1388146c3be7acf766f2e84cd4d4f9b63fe8bb59a386ad4"
+  }
+}

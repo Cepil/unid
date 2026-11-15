@@ -7,7 +7,7 @@
 **레포 최상위의 `model.py` · `train.py` · `test.py`** (모델 이름 hybrid_rewm, 변형 REW) — Public **0.9548552368**, 제공 Validation 0.769316.
 
 - 제출 파일: `submission_rew.csv` (SHA256 앞 16자 `a0dafe3f05c118f3`)
-- 가중치: `model.pt`, `tree.joblib`, `manifest.json` 한 세트. **다운로드 링크: (팀에서 기입)** — 받은 세 파일을 레포 최상위의 `weights/` 폴더에 둔다.
+- 가중치: 레포 최상위 [`weights/`](weights/)에 들어 있다 — `model.pt` (45.7MB), `tree.joblib` (3.7MB), `manifest.json` 한 세트. `manifest.json`에 두 파일의 SHA256과 학습 환경 버전이 적혀 있고, `test.py`는 실행할 때 이 해시를 확인한다.
 - 대회 데이터는 이 레포에 포함하지 않는다.
 
 ### 추론 (재학습 없이 제출 결과 재현)

@@ -18,10 +18,13 @@ __pycache__/
 .env.*
 !.env.example
 
-# 가중치·제출 파일·압축본은 레포에 올리지 않는다 (가중치는 README의 링크로 전달)
-weights/
+# 제출 파일·압축본·실험용 가중치는 레포에 올리지 않는다
 weights_*/
 *.joblib
 *.csv
 *.tar.gz
 *.zip
+
+# 최종 모델의 가중치만 예외로 포함한다 (레포 최상위 weights/)
+!/weights/model.pt
+!/weights/tree.joblib
